@@ -1,6 +1,6 @@
-# CryptoRateX
+# RateRadar
 
-CryptoRateX is a Next.js web application that fetches and displays cryptocurrency exchange rates in real-time. It provides multi-language support, error handling, and can be deployed using Docker or Kubernetes.
+RateRadar is a Next.js web application that fetches and displays cryptocurrency exchange rates in real-time. It provides multi-language support, error handling, and can be deployed using Docker or Kubernetes.
 
 ## Features
 
@@ -18,4 +18,5 @@ CryptoRateX is a Next.js web application that fetches and displays cryptocurrenc
 
 ```bash
 git clone https://github.com/Tnmy1996/rate-radar.git
-cd CryptoRateX
+cd RateRadar
+```
