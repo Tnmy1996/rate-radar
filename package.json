@@ -1,34 +1,44 @@
 {
-  "name": "rate-radar",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "next build",
-    "commit": "cz",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "name": "rate-radar",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "build": "next build",
+        "commit": "cz",
+        "dev": "next dev",
+        "format": "prettier --write .",
+        "lint": "next lint",
+        "lint-fix": "next lint --fix",
+        "start": "next start"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "dependencies": {
+        "next": "14.2.3",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "@types/eslint": "~8.56.10",
+        "@types/eslint-config-prettier": "~6.11.3",
+        "@types/node": "^20.12.12",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@typescript-eslint/eslint-plugin": "^7.10.0",
+        "@typescript-eslint/parser": "^7.10.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "14.2.3",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-storybook": "^0.8.0",
+        "eslint-plugin-unused-imports": "^3.2.0",
+        "postcss": "^8.4.38",
+        "prettier": "^3.2.5",
+        "tailwindcss": "^3.4.3",
+        "typescript": "^5.4.5"
     }
-  },
-  "dependencies": {
-    "next": "14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@types/eslint": "~8.56.10",
-    "@types/node": "^20.12.12",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.3",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
-  }
 }

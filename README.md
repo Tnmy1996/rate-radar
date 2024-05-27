@@ -4,13 +4,13 @@ RateRadar is a Next.js web application that fetches and displays cryptocurrency 
 
 ## Features
 
-- Fetches exchange rates data from the Coinbase API
-- Displays exchange rates in the format {CRYPTO}/EUR
-- Integrates cryptocurrency icons for visual representation
-- Supports multiple languages with language switching functionality
-- Implements support for both right-to-left (RTL) and left-to-right (LTR) languages
-- Handles API errors gracefully
-- Docker and Kubernetes deployment options available
+-   Fetches exchange rates data from the Coinbase API
+-   Displays exchange rates in the format {CRYPTO}/EUR
+-   Integrates cryptocurrency icons for visual representation
+-   Supports multiple languages with language switching functionality
+-   Implements support for both right-to-left (RTL) and left-to-right (LTR) languages
+-   Handles API errors gracefully
+-   Docker and Kubernetes deployment options available
 
 ## Setup
 
