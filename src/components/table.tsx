@@ -131,6 +131,7 @@ export function CurrencyDataTable() {
         {},
     );
 
+    // will poll every 4 seconds
     const { data: api_response, isLoading } = useGetExchangeRates(currency);
 
     const data = useMemo(() => {
