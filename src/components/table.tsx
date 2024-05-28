@@ -132,7 +132,11 @@ export function CurrencyDataTable() {
     );
 
     // will poll every 4 seconds
-    const { data: api_response, isLoading } = useGetExchangeRates(currency);
+    const {
+        data: api_response,
+        isLoading,
+        isError,
+    } = useGetExchangeRates(currency);
 
     const data = useMemo(() => {
         const rates = api_response?.data.rates ?? {};
@@ -162,6 +166,13 @@ export function CurrencyDataTable() {
             locale: language,
         },
     });
+
+    if (isError)
+        return (
+            <div className='flex h-3/4 items-center justify-center text-center'>
+                {t('error')}
+            </div>
+        );
 
     const loading = (
         <div

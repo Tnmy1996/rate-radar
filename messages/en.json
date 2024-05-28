@@ -17,5 +17,9 @@
     "footer": {
         "privacy": "Privacy Policy",
         "terms": "Terms of Service"
+    },
+    "error": {
+        "acton": "Try Again",
+        "message": "Something went wrong!"
     }
 }
