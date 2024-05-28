@@ -105,7 +105,7 @@ export const columns: ColumnDef<CurrencyData>[] = [
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             return (
                 <div>
-                    {t('rate')} ( {currency} )
+                    {t('rate')} ({currency})
                 </div>
             );
         },
