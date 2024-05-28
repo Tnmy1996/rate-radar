@@ -200,7 +200,7 @@ export function CurrencyDataTable() {
     );
 
     return (
-        <div className='w-full'>
+        <div className='flex w-full flex-1 flex-col'>
             <div className='flex items-center py-4'>
                 <Input
                     placeholder={t('placeholder')}
@@ -248,7 +248,7 @@ export function CurrencyDataTable() {
                 loading
             ) : (
                 <>
-                    <div className='rounded-md border'>
+                    <div className='flex-1 rounded-md border'>
                         <Table className=''>
                             <TableHeader>
                                 {table.getHeaderGroups().map((headerGroup) => (
