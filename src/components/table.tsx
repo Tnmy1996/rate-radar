@@ -201,7 +201,7 @@ export function CurrencyDataTable() {
 
     return (
         <div className='flex w-full flex-1 flex-col'>
-            <div className='flex items-center py-4'>
+            <div className='flex items-center justify-between gap-4 py-4'>
                 <Input
                     placeholder={t('placeholder')}
                     value={
@@ -218,7 +218,7 @@ export function CurrencyDataTable() {
                 />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant='outline' className='ml-auto'>
+                        <Button variant='outline'>
                             {t('columns')}{' '}
                             <ChevronDown className='ml-2 h-4 w-4' />
                         </Button>
