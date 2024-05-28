@@ -11,6 +11,8 @@ module.exports = {
         'plugin:import/recommended',
         'plugin:import/typescript',
 
+        'plugin:@tanstack/eslint-plugin-query/recommended',
+
         'prettier',
     ],
     plugins: ['@typescript-eslint', 'import', 'unused-imports'],
