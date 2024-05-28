@@ -17,5 +17,9 @@
     "footer": {
         "privacy": "Política de privacidad",
         "terms": "Términos del servicio"
+    },
+    "error": {
+        "action": "Inténtalo de nuevo",
+        "message": "¡Algo salió mal!"
     }
 }

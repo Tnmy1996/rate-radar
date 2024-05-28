@@ -17,5 +17,9 @@
     "footer": {
         "privacy": "Datenschutzbestimmungen",
         "terms": "Nutzungsbedingungen"
+    },
+    "error": {
+        "action": "Erneut versuchen",
+        "message": "Etwas ist schief gelaufen!"
     }
 }

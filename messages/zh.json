@@ -17,5 +17,9 @@
     "footer": {
         "privacy": "隐私政策",
         "terms": "服务条款"
+    },
+    "error": {
+        "action": "再试一次",
+        "message": "出了些问题!"
     }
 }

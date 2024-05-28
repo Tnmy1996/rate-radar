@@ -17,5 +17,9 @@
     "footer": {
         "privacy": "プライバシーポリシー",
         "terms": "利用規約"
+    },
+    "error": {
+        "action": "もう一度試す",
+        "message": "問題が発生しました!"
     }
 }
