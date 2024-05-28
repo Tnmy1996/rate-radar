@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import LanguageDropdown from './language-dropdown';
 
 export const Header = () => {
-    const t = useTranslations('Header');
+    const t = useTranslations('header');
 
     return (
         <header className='bg-white px-4 py-4 shadow-sm dark:bg-gray-800 md:px-6'>
