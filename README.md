@@ -10,7 +10,7 @@ RateRadar is a Next.js web application that fetches and displays cryptocurrency 
 -   Supports multiple languages with language switching functionality
 -   Implements support for both right-to-left (RTL) and left-to-right (LTR) languages
 -   Handles API errors gracefully
--   Docker and Kubernetes deployment options available
+-   Docker deployment options available
 
 ## Setup
 
@@ -18,5 +18,5 @@ RateRadar is a Next.js web application that fetches and displays cryptocurrency 
 
 ```bash
 git clone https://github.com/Tnmy1996/rate-radar.git
-cd RateRadar
+cd rate-radar
 ```
