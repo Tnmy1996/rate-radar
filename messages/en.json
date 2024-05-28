@@ -1,0 +1,21 @@
+{
+    "header": {
+        "toggle": "Toggle navigation menu",
+        "subheading": "Select a currency to view the current cryptocurrency rates",
+        "select-currency": "Select Currency",
+        "select-language": "Select Language"
+    },
+    "table": {
+        "rate": "Rate",
+        "currency": "Currency",
+        "columns": "Columns",
+        "placeholder": "Filter Currencies...",
+        "no-result": "No results found",
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "footer": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+    }
+}

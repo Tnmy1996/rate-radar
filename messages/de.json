@@ -1,0 +1,21 @@
+{
+    "header": {
+        "toggle": "Navigationsmenü umschalten",
+        "subheading": "Wählen Sie eine Währung, um die aktuellen Kryptowährungskurse anzuzeigen",
+        "select-currency": "Währung wählen",
+        "select-language": "Sprache wählen"
+    },
+    "table": {
+        "rate": "Rate",
+        "currency": "Währung",
+        "columns": "Spalten",
+        "placeholder": "Währungen filtern...",
+        "no-result": "Keine Ergebnisse gefunden",
+        "previous": "Zurück",
+        "next": "Weiter"
+    },
+    "footer": {
+        "privacy": "Datenschutzbestimmungen",
+        "terms": "Nutzungsbedingungen"
+    }
+}

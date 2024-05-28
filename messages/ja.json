@@ -1,0 +1,21 @@
+{
+    "header": {
+        "toggle": "ナビゲーションメニューの切り替え",
+        "subheading": "現在の暗号通貨レートを表示するには、通貨を選択してください",
+        "select-currency": "通貨を選択",
+        "select-language": "言語を選択"
+    },
+    "table": {
+        "rate": "レート",
+        "currency": "通貨",
+        "columns": "列",
+        "placeholder": "通貨をフィルタ...",
+        "no-result": "結果が見つかりません",
+        "previous": "前へ",
+        "next": "次へ"
+    },
+    "footer": {
+        "privacy": "プライバシーポリシー",
+        "terms": "利用規約"
+    }
+}

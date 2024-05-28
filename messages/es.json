@@ -1,0 +1,21 @@
+{
+    "header": {
+        "toggle": "Alternar menú de navegación",
+        "subheading": "Seleccione una moneda para ver las tasas de criptomonedas actuales",
+        "select-currency": "Seleccionar moneda",
+        "select-language": "Seleccionar idioma"
+    },
+    "table": {
+        "rate": "Tasa",
+        "currency": "Moneda",
+        "columns": "Columnas",
+        "placeholder": "Filtrar monedas...",
+        "no-result": "No se encontraron resultados",
+        "previous": "Anterior",
+        "next": "Siguiente"
+    },
+    "footer": {
+        "privacy": "Política de privacidad",
+        "terms": "Términos del servicio"
+    }
+}

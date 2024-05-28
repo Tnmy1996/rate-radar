@@ -1,0 +1,21 @@
+{
+    "header": {
+        "toggle": "Basculer le menu de navigation",
+        "subheading": "Sélectionnez une devise pour voir les taux actuels des cryptomonnaies",
+        "select-currency": "Choisir la devise",
+        "select-language": "Choisir la langue"
+    },
+    "table": {
+        "rate": "Taux",
+        "currency": "Devise",
+        "columns": "Colonnes",
+        "placeholder": "Filtrer les devises...",
+        "no-result": "Aucun résultat trouvé",
+        "previous": "Précédent",
+        "next": "Suivant"
+    },
+    "footer": {
+        "privacy": "Politique de confidentialité",
+        "terms": "Conditions d'utilisation"
+    }
+}
