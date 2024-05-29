@@ -100,7 +100,7 @@ export const columns: ColumnDef<CurrencyData>[] = [
             );
         },
         cell: ({ row }) => (
-            <div className='flex items-center space-x-2'>
+            <div className='flex items-center space-x-2 px-4'>
                 <div className='h-6 w-6'>
                     <CurrencyIcon coin={row.getValue('currency')} />
                 </div>
@@ -133,7 +133,7 @@ export const columns: ColumnDef<CurrencyData>[] = [
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             const rate = parseFloat(row.getValue('rate'));
             const formattedRate = CurrencyFormatters[currency].format(rate);
-            return <div>{formattedRate}</div>;
+            return <div className='px-4'>{formattedRate}</div>;
         },
     },
 ];
