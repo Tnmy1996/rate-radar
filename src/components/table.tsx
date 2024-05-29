@@ -14,7 +14,7 @@ import {
     useReactTable,
     type VisibilityState,
 } from '@tanstack/react-table';
-import { ChevronDown } from 'lucide-react';
+import { ArrowUpDown, ChevronDown } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useContext, useMemo, useState } from 'react';
 
@@ -86,7 +86,19 @@ const CurrencyFormatters = {
 export const columns: ColumnDef<CurrencyData>[] = [
     {
         accessorKey: 'currency',
-        header: 'Cryptocurrency',
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant='ghost'
+                    onClick={() =>
+                        column.toggleSorting(column.getIsSorted() === 'asc')
+                    }
+                >
+                    Cryptocurrency
+                    <ArrowUpDown className='ml-2 h-4 w-4' />
+                </Button>
+            );
+        },
         cell: ({ row }) => (
             <div className='flex items-center space-x-2'>
                 <div className='h-6 w-6'>
@@ -98,18 +110,24 @@ export const columns: ColumnDef<CurrencyData>[] = [
     },
     {
         accessorKey: 'rate',
-        header: ({ table }) => {
+
+        header: ({ column, table }) => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const t = useTranslations('table');
             const currency = (table.options?.meta?.currency ||
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             return (
-                <div>
+                <Button
+                    variant='ghost'
+                    onClick={() =>
+                        column.toggleSorting(column.getIsSorted() === 'asc')
+                    }
+                >
                     {t('rate')} ({currency})
-                </div>
+                    <ArrowUpDown className='ml-2 h-4 w-4' />
+                </Button>
             );
         },
-
         cell: ({ row, table }) => {
             const currency = (table.options?.meta?.currency ||
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
