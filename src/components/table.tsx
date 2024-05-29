@@ -122,21 +122,23 @@ const columns = [
             const faitCurrency = (table.options?.meta?.currency ||
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             return (
-                <Button
-                    variant='ghost'
-                    onClick={() =>
-                        column.toggleSorting(column.getIsSorted() === 'asc')
-                    }
-                >
-                    Cryptocurrency / {faitCurrency}
-                    <ArrowUpDown className='ml-2 h-4 w-4' />
-                </Button>
+                <div className='flex w-full justify-end'>
+                    <Button
+                        variant='ghost'
+                        onClick={() =>
+                            column.toggleSorting(column.getIsSorted() === 'asc')
+                        }
+                    >
+                        Crypto / {faitCurrency}
+                        <ArrowUpDown className='ml-2 h-4 w-4' />
+                    </Button>
+                </div>
             );
         },
         cell: ({ getValue }) => {
             const rate = getValue();
             const formattedRate = formatNumber(rate);
-            return <div className='px-4'>{formattedRate}</div>;
+            return <div className='px-4 text-right'>{formattedRate}</div>;
         },
     }),
     columnHelper.accessor('fiatPerCrypto', {
@@ -146,15 +148,17 @@ const columns = [
             const faitCurrency = (table.options?.meta?.currency ||
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             return (
-                <Button
-                    variant='ghost'
-                    onClick={() =>
-                        column.toggleSorting(column.getIsSorted() === 'asc')
-                    }
-                >
-                    {t('rate')} ({faitCurrency})
-                    <ArrowUpDown className='ml-2 h-4 w-4' />
-                </Button>
+                <div className='flex w-full justify-end'>
+                    <Button
+                        variant='ghost'
+                        onClick={() =>
+                            column.toggleSorting(column.getIsSorted() === 'asc')
+                        }
+                    >
+                        {t('rate')} ({faitCurrency})
+                        <ArrowUpDown className='ml-2 h-4 w-4' />
+                    </Button>
+                </div>
             );
         },
         cell: ({ getValue, table }) => {
@@ -164,7 +168,7 @@ const columns = [
             const formattedRate = CurrencyFormatters[faitCurrency].format(
                 +formatNumber(rate),
             );
-            return <div className='px-4'>{formattedRate}</div>;
+            return <div className='px-4 text-right'>{formattedRate}</div>;
         },
     }),
 ];
