@@ -2,8 +2,8 @@
 
 import { useGetExchangeRates } from '@/api';
 import {
-    type ColumnDef,
     type ColumnFiltersState,
+    createColumnHelper,
     flexRender,
     getCoreRowModel,
     getFilteredRowModel,
@@ -42,7 +42,8 @@ import CurrencyIcon from './currency-icon';
 
 export type CurrencyData = {
     currency: string;
-    rate: string;
+    cryptoPerFait: number;
+    fiatPerCrypto: number;
 };
 
 declare module '@tanstack/react-table' {
@@ -83,9 +84,17 @@ const CurrencyFormatters = {
     }), // Japan (Japanese Yen)
 };
 
-export const columns: ColumnDef<CurrencyData>[] = [
-    {
-        accessorKey: 'currency',
+function formatNumber(number: number) {
+    if (Math.floor(number) !== 0) {
+        return number.toFixed(2);
+    } else {
+        return number.toFixed(7);
+    }
+}
+
+const columnHelper = createColumnHelper<CurrencyData>();
+const columns = [
+    columnHelper.accessor('currency', {
         header: ({ column }) => {
             return (
                 <Button
@@ -99,22 +108,18 @@ export const columns: ColumnDef<CurrencyData>[] = [
                 </Button>
             );
         },
-        cell: ({ row }) => (
+        cell: ({ getValue }) => (
             <div className='flex items-center space-x-2 px-4'>
                 <div className='h-6 w-6'>
-                    <CurrencyIcon coin={row.getValue('currency')} />
+                    <CurrencyIcon coin={getValue()} />
                 </div>
-                <span>{row.getValue('currency')}</span>
+                <span>{getValue()}</span>
             </div>
         ),
-    },
-    {
-        accessorKey: 'rate',
-
+    }),
+    columnHelper.accessor('cryptoPerFait', {
         header: ({ column, table }) => {
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const t = useTranslations('table');
-            const currency = (table.options?.meta?.currency ||
+            const faitCurrency = (table.options?.meta?.currency ||
                 CURRENCIES.USD) as keyof typeof CURRENCIES;
             return (
                 <Button
@@ -123,20 +128,51 @@ export const columns: ColumnDef<CurrencyData>[] = [
                         column.toggleSorting(column.getIsSorted() === 'asc')
                     }
                 >
-                    {t('rate')} ({currency})
+                    Cryptocurrency / {faitCurrency}
                     <ArrowUpDown className='ml-2 h-4 w-4' />
                 </Button>
             );
         },
-        cell: ({ row, table }) => {
-            const currency = (table.options?.meta?.currency ||
-                CURRENCIES.USD) as keyof typeof CURRENCIES;
-            const rate = parseFloat(row.getValue('rate'));
-            const formattedRate = CurrencyFormatters[currency].format(rate);
+        cell: ({ getValue }) => {
+            const rate = getValue();
+            const formattedRate = formatNumber(rate);
             return <div className='px-4'>{formattedRate}</div>;
         },
-    },
+    }),
+    columnHelper.accessor('fiatPerCrypto', {
+        header: ({ column, table }) => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const t = useTranslations('table');
+            const faitCurrency = (table.options?.meta?.currency ||
+                CURRENCIES.USD) as keyof typeof CURRENCIES;
+            return (
+                <Button
+                    variant='ghost'
+                    onClick={() =>
+                        column.toggleSorting(column.getIsSorted() === 'asc')
+                    }
+                >
+                    {t('rate')} ({faitCurrency})
+                    <ArrowUpDown className='ml-2 h-4 w-4' />
+                </Button>
+            );
+        },
+        cell: ({ getValue, table }) => {
+            const faitCurrency = (table.options?.meta?.currency ||
+                CURRENCIES.USD) as keyof typeof CURRENCIES;
+            const rate = getValue();
+            const formattedRate = CurrencyFormatters[faitCurrency].format(
+                +formatNumber(rate),
+            );
+            return <div className='px-4'>{formattedRate}</div>;
+        },
+    }),
 ];
+
+// Function to convert crypto/fiat rate to fiat/crypto rate
+function convertCryptoToFiatRate(cryptoToFiatRate: string) {
+    return 1 / parseFloat(cryptoToFiatRate);
+}
 
 export function CurrencyDataTable() {
     const { currency } = useContext(FilterContext);
@@ -158,10 +194,13 @@ export function CurrencyDataTable() {
 
     const data = useMemo(() => {
         const rates = api_response?.data.rates ?? {};
-        return Object.keys(rates).map((key) => ({
-            currency: key,
-            rate: rates[key],
-        }));
+        return Object.keys(rates).map((key) => {
+            return {
+                currency: key,
+                cryptoPerFait: parseFloat(rates[key]), // crypto / fiat currency
+                fiatPerCrypto: convertCryptoToFiatRate(rates[key]), // fiat / crypto currency
+            };
+        });
     }, [api_response?.data.rates]);
 
     const table = useReactTable({
